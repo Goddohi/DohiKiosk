@@ -5,23 +5,45 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Dohikiosk.UC"
              mc:Ignorable="d" 
-             d:DesignHeight="50" d:DesignWidth="600">
-    <Grid>
+             d:DesignHeight="50" d:DesignWidth="700">
+    <Grid Width="700">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="7*"/><!-- 0 이름-->
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="7*"/>
-            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="auto"/><!-- 0 이름-->
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <!-- 0 이름-->
-        <TextBlock Text="{Binding Name}" Width="auto" Grid.Column="0" />
-        <!-- 갯수 -->
-        <TextBox Text="{Binding Order, Mode=TwoWay}" Grid.Column="1"/>
-        <TextBlock Text="{Binding Price, StringFormat={}  1개당 가격{0}원}" Grid.Column="2"/>
+        <TextBlock Text="{Binding Name,StringFormat={}  {0}  }" Width="auto" Grid.Column="0"
+                 HorizontalAlignment="Center" VerticalAlignment="Center"  />
+        <!-- 금액-->
+        <TextBlock Text="{Binding Price, StringFormat={}  1개당 가격{0}원}" Grid.Column="1"
+                 HorizontalAlignment="Center" VerticalAlignment="Center" />
 
-        <TextBlock Text="{Binding TotalPrice, StringFormat={}총금액{0}원}" Grid.Column="3"/>
-        <Button Click="Button_Click" Grid.Column="4"></Button>
+     
+
+        <StackPanel Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+
+            <Button  Style="{StaticResource DefaultButtonStyle}"  
+                 HorizontalAlignment="Center" VerticalAlignment="Center" 
+                 Click="BtnOrderMinus_Click"  Width="30" Height="30" >-</Button>
+            <TextBox Text="{Binding Order, Mode=TwoWay}" Grid.Column="1"
+                 HorizontalAlignment="Center" MinWidth="15" Width="auto"  VerticalAlignment="Center" />
+            <Button  Style="{StaticResource DefaultButtonStyle}" 
+                 HorizontalAlignment="Center" VerticalAlignment="Center" 
+                 Click="BtnOrderPlus_Click"   Width="30" Height="30" >+</Button>
+            <!--Margin은 상우하좌 (top right bottom left)-->
+            <TextBlock Text="{Binding TotalPrice, StringFormat={}총금액{0}원}" Margin="0,8,0,8" 
+                 HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Button  Style="{StaticResource DefaultButtonStyle}" 
+                 HorizontalAlignment="Center" VerticalAlignment="Center" 
+                 Click="BtnOrderDel_Click"    Width="45" Height="30">삭제</Button>
+        </StackPanel>
+
         
+ 
+
     </Grid>
 </UserControl>

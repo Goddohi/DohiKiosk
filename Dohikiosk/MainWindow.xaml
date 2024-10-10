@@ -7,7 +7,7 @@
         xmlns:localUC="clr-namespace:Dohikiosk.UC"
         xmlns:localEntity="clr-namespace:Dohikiosk.Entity"
         mc:Ignorable="d"
-        Title="DohiKiosk" Height="450" Width="800">
+        Title="DohiKiosk" Height="600" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
@@ -39,7 +39,7 @@
         
         
         <StackPanel Grid.Row="2">
-            <ScrollViewer  Height="50">
+            <ScrollViewer  Height="100">
             <ListBox ItemsSource="{Binding MenuOrders}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>

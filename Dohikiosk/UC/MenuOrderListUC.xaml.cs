@@ -44,9 +44,20 @@ namespace Dohikiosk.UC
             
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        //주문 1개삭제
+        private void BtnOrderMinus_Click(object sender, RoutedEventArgs e)
         {
             MenuOrder.Order--;
+        }
+        //주문 추가
+        private void BtnOrderPlus_Click(object sender, RoutedEventArgs e)
+        {
+            MenuOrder.Order++;
+        }
+        // main에서 0이되면 자동으로 삭제되는 로직을 이용
+        private void BtnOrderDel_Click(object sender, RoutedEventArgs e)
+        {
+            MenuOrder.Order=0;
         }
     }
 }
