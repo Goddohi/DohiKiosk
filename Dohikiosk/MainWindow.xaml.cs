@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Dohikiosk.Entity;
+using Dohikiosk.Service;
 using Dohikiosk.UC;
 
 namespace Dohikiosk
@@ -25,7 +26,7 @@ namespace Dohikiosk
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         public ObservableCollection<MenuOrder> MenuOrders { get; set; }
-
+        private MenuService menuService = new MenuService();
         public ObservableCollection<MenuEntity> Menus { get; set; }
         private long _totalPrice;
 
@@ -48,18 +49,9 @@ namespace Dohikiosk
             MenuOrders = new ObservableCollection<MenuOrder>
             ();
             Menus = new ObservableCollection<MenuEntity>();
-            SettingMenu("치킨", 21000);
-            SettingMenu("피자", 15000);
-
-            SettingMenu("감튀", 2500);
-            SettingMenu("콜라", 2500);
-
-            SettingMenu("사이다", 2500);
-            SettingMenu("제로콜라", 2500);
-
-            SettingMenu("테스트1", 2500);
-            SettingMenu("제로콜라2", 2500);
-            SettingMenu("제로콜라3", 2500);
+            foreach (var menu in menuService.menuLoad()){
+                 SettingMenu(menu.Name , menu.Price);
+            }
 
             TotalPrice =0;
             DataContext = this;

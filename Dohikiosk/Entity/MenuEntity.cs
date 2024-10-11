@@ -10,7 +10,9 @@ namespace Dohikiosk.Entity
      public class MenuEntity
     {
        private string _name;
-
+       private string _type;
+       private long   _price;
+       private bool   _check;
         public string Name
         {
             get
@@ -24,7 +26,7 @@ namespace Dohikiosk.Entity
             }
         }
 
-        private string _type;
+        
 
         public string Type
         {
@@ -39,7 +41,6 @@ namespace Dohikiosk.Entity
             }
         }
 
-        private long _price;
 
         public long Price
         {
@@ -54,7 +55,7 @@ namespace Dohikiosk.Entity
             }
         }
         //올라갔는지 확인
-        private bool _check;
+        
 
         public bool Check
         {
@@ -68,6 +69,7 @@ namespace Dohikiosk.Entity
                 OnPropertyChanged(nameof(Check));
             }
         }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName) 
