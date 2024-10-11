@@ -39,16 +39,16 @@
         
         
         <StackPanel Grid.Row="2">
-            <ScrollViewer  Height="100">
-            <ListBox ItemsSource="{Binding MenuOrders}">
+            <!--  <ScrollViewer  Height="100"> 자체적으로 ScrollViewer가 ListBox에 있고 그거때문에 휠스크롤이 겹쳐서 인식이안됨 오히려 없어야함 -->
+            <ListBox  Height="100" ItemsSource="{Binding MenuOrders}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <localUC:MenuOrderListUC  MenuOrder="{Binding}"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-        </ScrollViewer>
-        <TextBlock Text="{Binding TotalPrice,StringFormat={}총금액 {0}원}" FontSize="20" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Top" />
+            <!--  </ScrollViewer>-->
+            <TextBlock Text="{Binding TotalPrice,StringFormat={}총금액 {0}원}" FontSize="20" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Top" />
          
         </StackPanel>
         
