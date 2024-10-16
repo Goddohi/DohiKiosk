@@ -50,27 +50,43 @@ namespace Dohikiosk
             ();
             Menus = new ObservableCollection<MenuEntity>();
             foreach (var menu in menuService.menuLoad()){
-                 SettingMenu(menu.Name , menu.Price);
+                 SettingMenu(menu.Name , menu.Img , menu.Price);
             }
 
             TotalPrice =0;
             DataContext = this;
         }
 
-        private void SettingMenu(String name, long price)
+        private void SettingMenu(string name, string img ,long price)
         {
             //동일한 이름의 MenuOrder가 있으면 반환 없으면 null
             MenuEntity existingOrder = Menus.FirstOrDefault(order => order.Name == name);
 
-            if (existingOrder == null)
+            if (existingOrder == null )
             {
-                MenuEntity newMenu = new MenuEntity
+                MenuEntity newMenu;
+                //이미지가 없을경우 예비이미지로 대입
+                if (string.IsNullOrEmpty(img))
                 {
-                    Name = name,
-                    Type = null,
-                    Price = price
-                };
+                    newMenu = new MenuEntity
+                    {
+                        Name = name,
+                        Img = "pack://application:,,,/Image/fullstar.png",
+                        Type = null,
+                        Price = price
+                    };
+                }
+                else
+                {
+                    newMenu = new MenuEntity
+                    {
+                        Name = name,
+                        Img = img,
+                        Type = null,
+                        Price = price
+                    };
 
+                }
                 // 새로운 메뉴 오더를 추가
                 Menus.Add(newMenu);
                 //뉴오더의 경우에도 이벤트 추가 
@@ -86,7 +102,6 @@ namespace Dohikiosk
 
         private void Delete_Order(MenuOrder menu)
         {
-            Console.WriteLine(" 들어오니");
             MenuOrders.Remove(menu);
         }
 

@@ -11,7 +11,8 @@ namespace Dohikiosk.Entity
     {
        private string _name;
        private string _type;
-       private long   _price;
+        private string _img;
+        private long   _price;
        private bool   _check;
         public string Name
         {
@@ -40,7 +41,18 @@ namespace Dohikiosk.Entity
                 OnPropertyChanged(nameof(Type));
             }
         }
-
+        public string Img
+        {
+            get
+            {
+                return _img;
+            }
+            set
+            {
+                _img = value;
+                OnPropertyChanged(nameof(Img));
+            }
+        }
 
         public long Price
         {

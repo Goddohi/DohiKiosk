@@ -33,6 +33,8 @@ namespace Dohikiosk.UC
             set => SetValue(MenuProperty, value);
         }
 
+
+        // MenuEntity가 변경될 때 호출되는 메서드
         private static void OnMenuChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var control = (MenuOrderButton)d;
@@ -43,11 +45,12 @@ namespace Dohikiosk.UC
         {
             InitializeComponent();
         }
-
+   
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           MenuEntity.Check = !MenuEntity.Check;
+
+            MenuEntity.Check = !MenuEntity.Check;
         }
     }
 }

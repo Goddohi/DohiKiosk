@@ -8,7 +8,7 @@
              d:DesignHeight="50" d:DesignWidth="700">
     <Grid Width="700">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/><!-- 0 이름-->
+            <ColumnDefinition MinWidth="30"  Width="auto"/><!-- 0 이름-->
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
@@ -29,8 +29,10 @@
             <Button  Style="{StaticResource DefaultButtonStyle}"  
                  HorizontalAlignment="Center" VerticalAlignment="Center" 
                  Click="BtnOrderMinus_Click"  Width="30" Height="30" >-</Button>
-            <TextBox Text="{Binding Order, Mode=TwoWay}" Grid.Column="1"
-                 HorizontalAlignment="Center" MinWidth="15" Width="auto"  VerticalAlignment="Center" />
+            <Border BorderBrush="#FF293955"  Width="30" Height="30"  BorderThickness="1"  CornerRadius="4" Padding="3">
+                <TextBlock Text="{Binding Order, Mode=TwoWay}" Grid.Column="1"
+                 HorizontalAlignment="Center"   VerticalAlignment="Center" />
+            </Border>
             <Button  Style="{StaticResource DefaultButtonStyle}" 
                  HorizontalAlignment="Center" VerticalAlignment="Center" 
                  Click="BtnOrderPlus_Click"   Width="30" Height="30" >+</Button>

@@ -1,18 +1,22 @@
 [
   {
     "Name": "치킨",
+    "Img": "pack://application:,,,/Image/fullstar.png",
     "Price": 21000
   },
   {
     "Name": "피자",
+    "Img": "pack://application:,,,/Image/fullstar.png",
     "Price": 18000
   },
   {
     "Name": "햄버거",
+    "Img": "pack://application:,,,/Image/fullstar.png",
     "Price": 9000
   },
   {
     "Name": "스파게티",
+    "Img": "pack://application:,,,/Image/fullstar.png",
     "Price": 12000
   },
   {
