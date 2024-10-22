@@ -182,7 +182,16 @@ namespace Dohikiosk
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        private void PaymentOn_Click(object sender, RoutedEventArgs e)
+        {
+            PaymentGrid.Visibility = Visibility.Visible;
+            MenuSelect.Visibility = Visibility.Hidden;
+        }
 
-
+        private void PaymentOff_Click(object sender, RoutedEventArgs e)
+        {
+            MenuSelect.Visibility = Visibility.Visible;
+            PaymentGrid.Visibility = Visibility.Collapsed;
+        }
     }
 }

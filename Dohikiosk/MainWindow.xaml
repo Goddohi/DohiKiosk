@@ -20,7 +20,7 @@
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ScrollViewer Grid.Column="1" Height="300">
+            <ScrollViewer x:Name="MenuSelect" Grid.Column="1" Height="300" >
                 <ItemsControl ItemsSource="{Binding Menus}">
                     <!-- ItemsPanelTemplate를 이용하여 WraPanel을 설정하였다 해당값이 없으면 기본적으로 ItemsControl가 사용-->
                     <ItemsControl.ItemsPanel>
@@ -37,7 +37,7 @@
             </ScrollViewer>
         </Grid>
         
-        
+        <!-- 선택현황-->
         <StackPanel Grid.Row="2">
             <!--  <ScrollViewer  Height="100"> 자체적으로 ScrollViewer가 ListBox에 있고 그거때문에 휠스크롤이 겹쳐서 인식이안됨 오히려 없어야함 -->
             <ListBox  Height="100" ItemsSource="{Binding MenuOrders}">
@@ -49,8 +49,25 @@
             </ListBox>
             <!--  </ScrollViewer>-->
             <TextBlock Text="{Binding TotalPrice,StringFormat={}총금액 {0}원}" FontSize="20" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Top" />
-         
+            <Button Click="PaymentOn_Click" Margin="10" Height="30" Width="50" HorizontalAlignment="Right" > 결제</Button>
+              
         </StackPanel>
         
+        <!--결제창(임시)-->
+        <Grid x:Name="PaymentGrid" Grid.RowSpan="3" Margin="80" Background="Wheat" Visibility="Hidden">
+            <Button  Click="PaymentOff_Click" Height="30" Width="30" HorizontalAlignment="Right" VerticalAlignment="Top" > x </Button>
+            <ListBox ItemsSource="{Binding MenuOrders}" Background="Wheat" Margin="40">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" Margin="5"/>
+                            <TextBlock Text="{Binding Order}" Margin="5"/>
+                            <TextBlock Text="{Binding TotalPrice}" Margin="5"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <TextBlock Text="{Binding TotalPrice,StringFormat={}   총가격 {0}원}" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        </Grid>
     </Grid>
 </Window>
