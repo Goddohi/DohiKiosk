@@ -36,7 +36,7 @@
                 </ItemsControl>
             </ScrollViewer>
         </Grid>
-        
+
         <!-- 선택현황-->
         <StackPanel Grid.Row="2">
             <!--  <ScrollViewer  Height="100"> 자체적으로 ScrollViewer가 ListBox에 있고 그거때문에 휠스크롤이 겹쳐서 인식이안됨 오히려 없어야함 -->
@@ -49,25 +49,30 @@
             </ListBox>
             <!--  </ScrollViewer>-->
             <TextBlock Text="{Binding TotalPrice,StringFormat={}총금액 {0}원}" FontSize="20" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Top" />
-            <Button Click="PaymentOn_Click" Margin="10" Height="30" Width="50" HorizontalAlignment="Right" > 결제</Button>
-              
+            <Button Style="{StaticResource DefaultButtonStyle}"  Click="PaymentOn_Click" Margin="10" Height="30" Width="50" HorizontalAlignment="Right" >결제</Button>
+
         </StackPanel>
-        
+
         <!--결제창(임시)-->
-        <Grid x:Name="PaymentGrid" Grid.RowSpan="3" Margin="80" Background="Wheat" Visibility="Hidden">
-            <Button  Click="PaymentOff_Click" Height="30" Width="30" HorizontalAlignment="Right" VerticalAlignment="Top" > x </Button>
-            <ListBox ItemsSource="{Binding MenuOrders}" Background="Wheat" Margin="40">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Name}" Margin="5"/>
-                            <TextBlock Text="{Binding Order}" Margin="5"/>
-                            <TextBlock Text="{Binding TotalPrice}" Margin="5"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-            <TextBlock Text="{Binding TotalPrice,StringFormat={}   총가격 {0}원}" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-        </Grid>
+        <Border  x:Name="PaymentGrid" Visibility="Hidden" Grid.RowSpan="3" 
+                 Margin="80" BorderBrush="Wheat"  Background="Wheat" 
+                 BorderThickness="2" CornerRadius="20" >
+            <Grid Margin="10">
+                <TextBlock FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center"> 계산서</TextBlock>
+                <Button Style="{StaticResource DefaultButtonStyle}"  Click="PaymentOff_Click" Height="30" Width="30" HorizontalAlignment="Right" VerticalAlignment="Top" >x</Button>
+                <ListBox ItemsSource="{Binding MenuOrders}" Background="Wheat" Margin="40">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}" Margin="5"/>
+                                <TextBlock Text="{Binding Order}" Margin="5"/>
+                                <TextBlock Text="{Binding TotalPrice}" Margin="5"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <TextBlock FontWeight="Bold" Text="{Binding TotalPrice,StringFormat={}   총가격 {0}원}" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

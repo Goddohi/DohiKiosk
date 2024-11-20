@@ -16,7 +16,9 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Text="{Binding Name}" />
-                    <Image x:Name="lmg" Source="{Binding Img}"  Grid.Row="1"></Image>
+                    <Image x:Name="lmg" Source="{Binding Img}" 
+       Width="80" 
+       Height="120"  Stretch="Uniform" Grid.Row="1"></Image>
                     <TextBlock Grid.Row="2" Text="{Binding Price, StringFormat={}{0}원}" />
                 </Grid>
             </Button.Content>

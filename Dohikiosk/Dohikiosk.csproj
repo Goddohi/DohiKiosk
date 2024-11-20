@@ -155,6 +155,9 @@
   <ItemGroup>
     <Resource Include="Image\fullstar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\chamisul.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>xcopy /s /y "$(ProjectDir)Data\*" "$(TargetDir)Data\"</PreBuildEvent>

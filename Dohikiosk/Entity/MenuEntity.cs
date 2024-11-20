@@ -11,9 +11,10 @@ namespace Dohikiosk.Entity
     {
        private string _name;
        private string _type;
-        private string _img;
-        private long   _price;
+       private string _img;
+       private long   _price;
        private bool   _check;
+
         public string Name
         {
             get
@@ -41,6 +42,7 @@ namespace Dohikiosk.Entity
                 OnPropertyChanged(nameof(Type));
             }
         }
+
         public string Img
         {
             get
@@ -66,9 +68,8 @@ namespace Dohikiosk.Entity
                 OnPropertyChanged(nameof(Price));
             }
         }
-        //올라갔는지 확인
-        
 
+        //올라갔는지 확인
         public bool Check
         {
             get
